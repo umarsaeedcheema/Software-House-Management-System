@@ -1,2 +1,2 @@
-# Software-Hourse-Management-System
-A softwate house management system.
+# Software-House-Management-System
+A software house management system.
