@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+<<<<<<< HEAD
 const mysql = require("mysql");
 const PORT = 3001;
 const cors = require("cors");
@@ -58,3 +59,10 @@ app.use("/signup", addEmployeeRouter);
 //     }
 //   );
 // });
+=======
+const port = 3001;
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
+});
+>>>>>>> 91e55390 (adding backend and setting up express)
