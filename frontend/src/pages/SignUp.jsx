@@ -1,7 +1,10 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+<<<<<<< HEAD
 import axios from "axios";
+=======
+>>>>>>> c8ff55b3 (created front-end and back-end dir)
 
 const SignUp = () => {
   const formik = useFormik({
@@ -23,9 +26,12 @@ const SignUp = () => {
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+<<<<<<< HEAD
       axios.post("http://localhost:3001/signup", values).then((res) => {
         console.log(res);
       });
+=======
+>>>>>>> c8ff55b3 (created front-end and back-end dir)
     },
   });
   console.log(formik.errors);
@@ -38,6 +44,7 @@ const SignUp = () => {
           className="flex flex-col "
           onSubmit={formik.handleSubmit}
         >
+<<<<<<< HEAD
           <label
             htmlFor="name"
             className={`text-gray-900 block pb-2 ${
@@ -66,10 +73,14 @@ const SignUp = () => {
               ? formik.errors.email
               : "Email:"}
           </label>
+=======
+          <label htmlFor="email">Email</label>
+>>>>>>> c8ff55b3 (created front-end and back-end dir)
           <input
             type="email"
             name="email"
             id="email"
+<<<<<<< HEAD
             className="ml-2 border border-gray-400 rounded "
             onChange={formik.handleChange}
             value={formik.values.email}
@@ -86,6 +97,13 @@ const SignUp = () => {
               ? formik.errors.password
               : "Password:"}
           </label>
+=======
+            className="ml-2 border border-gray-400 rounded"
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
+          <label htmlFor="password">Password</label>
+>>>>>>> c8ff55b3 (created front-end and back-end dir)
           <input
             type="password"
             name="password"
@@ -94,10 +112,25 @@ const SignUp = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
           />
+<<<<<<< HEAD
 
           <button
             type="submit"
             className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-2/4 hover:bg-blue-800"
+=======
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            className="ml-2 border border-gray-400 rounded"
+            onChange={formik.handleChange}
+            value={formik.values.name}
+          />
+          <button
+            type="submit"
+            className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-2/4 "
+>>>>>>> c8ff55b3 (created front-end and back-end dir)
           >
             Submit
           </button>
