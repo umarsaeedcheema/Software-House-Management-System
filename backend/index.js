@@ -37,6 +37,9 @@ app.get("/", (req, res) => {
 //HR creating a new employee
 const addEmployeeRouter = require("./routes/AddEmployeeRoute");
 app.use("/signup", addEmployeeRouter);
+
+const loginEmployeeRouter = require("./routes/LoginEmployeeRoute");
+app.use("/login", loginEmployeeRouter);
 // app.post("/signup", (req, res) => {
 //   console.log(req.body);
 //   res.json(req.body);

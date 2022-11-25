@@ -14,7 +14,7 @@ function App() {
             <Link to={`signup`}>Sign Up</Link>
           </button>
           <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
-            <Link to={`signup`}>Log In</Link>
+            <Link to={`login`}>Log In</Link>
           </button>
         </div>
         <div className="col-start-5 col-span-3 auto-cols-auto shadow bg-sky-100">
