@@ -30,7 +30,7 @@ router.post("/", (req, res) => {
   const password = req.body.password;
   connection.query(
     {
-      sql: `SELECT * FROM users WHERE users.name='${name}' AND users.email='${email} AND users.password='${password}`,
+      sql: `SELECT * FROM users WHERE users.name='${name}' AND users.email='${email}' AND users.password='${password}'`,
 //       values: [name, email, password],
       timeout: 40000, //40s
     },
