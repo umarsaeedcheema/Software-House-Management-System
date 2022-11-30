@@ -2,9 +2,10 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router";
 
-const LogIn = () => {
+const Login = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -27,13 +28,13 @@ const LogIn = () => {
       axios.post("http://localhost:3001/login", values).then((res) => {
         console.log(res);
       });
+      navigate(`/hrHome`);
     },
   });
   console.log(formik.errors);
   return (
     <div className="flex flex-col items-center">
       <div className="mt-12 p-10 bg-sky-100 rounded-2xl">
-        
         <h1 className="text-3xl my-10 items-center">Client LogIn</h1>
         <form
           action=""
@@ -109,4 +110,4 @@ const LogIn = () => {
   );
 };
 
-export default LogIn;
+export default Login;

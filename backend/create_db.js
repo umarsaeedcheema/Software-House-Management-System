@@ -66,6 +66,19 @@ const createEmployeeReviewsTable = `CREATE TABLE IF NOT EXISTS employee_reviews 
         PRIMARY KEY (id, created_at)
 )`;
 
+// employee table
+// added salary in this
+const createEmployeeTable = `CREATE TABLE IF NOT EXISTS employee (
+
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    designation VARCHAR(255) NOT NULL,
+    salary INT(10) NOT NULL,
+    hired_on DATE NOT NULL,
+    PRIMARY KEY (id)
+)`;
+
 connectionString.connect((error) => {
   if (!error) {
     console.log("Connection has been established");

@@ -2,8 +2,8 @@ import React from "react";
 import App from "../App";
 import ErrorPage from "./ErrorPage";
 import SignUp from "./SignUp";
-import LogIn from "./LogIn";
-import RaisePrivilege from "./RaisePrivilege"
+// import LogIn from "./LogIn";
+import RaisePrivilege from "./RaisePrivilege";
 import LoginPopUp from "../components/LoginPopUp";
 import Login from "./Login";
 import HRHomepage from "./HRHomepage";
