@@ -2,10 +2,10 @@ import React from "react";
 import App from "../App";
 import ErrorPage from "./ErrorPage";
 import SignUp from "./SignUp";
-// import LogIn from "./LogIn";
+import LogIn from "./LogIn";
 import RaisePrivilege from "./RaisePrivilege";
 import LoginPopUp from "../components/LoginPopUp";
-import Login from "./Login";
+// import Login from "./Login";
 import HRHomepage from "./HRHomepage";
 import NoMatch from "./NoMatch";
 import AddEmployee from "./AddEmployee";
@@ -35,7 +35,7 @@ const routes = [
   },
   {
     path: "/login",
-    element: <Login></Login>,
+    element: <LogIn></LogIn>,
     errorElement: <ErrorPage />,
   },
   {
