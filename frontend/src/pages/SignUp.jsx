@@ -2,8 +2,10 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useNavigate } from "react-router";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -26,13 +28,19 @@ const SignUp = () => {
       axios.post("http://localhost:3001/signup", values).then((res) => {
         console.log(res);
       });
+      navigate("/loginpopup", {
+        state: {
+          name: values.name,
+          email: values.email,
+        },
+      });
     },
   });
   console.log(formik.errors);
   return (
     <div className="flex flex-col items-center">
-      <div className="mt-12 p-10 bg-sky-100 rounded-2xl">
-        <h1 className="text-3xl my-10 items-center">Client SignUp</h1>
+      <div className="flex flex-col mt-12 p-10 bg-sky-100 rounded-2xl items-center">
+        <h1 className="text-3xl my-10 ">HR SignUp </h1>
         <form
           action=""
           className="flex flex-col "

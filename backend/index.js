@@ -35,26 +35,11 @@ app.get("/", (req, res) => {
 });
 
 //HR creating a new employee
-const addEmployeeRouter = require("./routes/AddEmployeeRoute");
-app.use("/signup", addEmployeeRouter);
-// app.post("/signup", (req, res) => {
-//   console.log(req.body);
-//   res.json(req.body);
-//   const name = req.body.name;
-//   const email = req.body.email;
-//   const password = req.body.password;
-//   connection.query(
-//     {
-//       sql: "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
-//       values: [name, email, password],
-//       timeout: 40000, //40s
-//     },
-//     (err, result) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         console.log(result);
-//       }
-//     }
-//   );
-// });
+const HRSignUp = require("./routes/HRSignUp");
+app.use("/signup", HRSignUp);
+
+//HR login
+
+//HR creating a new employee
+const addEmployee = require("./routes/addEmployee");
+app.use("/addEmployee", addEmployee);

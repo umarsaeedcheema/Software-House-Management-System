@@ -51,6 +51,44 @@ const createUsersTable = `CREATE TABLE IF NOT EXISTS users (
     PRIMARY KEY (id)
   )`;
 
+//employee table
+// changed : added salary column,
+const createEmployeeTable = `CREATE TABLE IF NOT EXISTS employee (
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(255) NOT NULL,
+    last_name VARCHAR(255) NOT NULL,
+    designation VARCHAR(255) NOT NULL,
+    salary INT NOT NULL,
+    hired_on DATE NOT NULL,
+    PRIMARY KEY (id)
+  )`;
+
+// FOREIGN KEY (task_id) REFERENCES task(id)
+
+//attendance table
+//changed this : added primary key (id), foreign key (employee_id) and status
+const createAttendanceTable = `CREATE TABLE IF NOT EXISTS attendance (
+    id INT NOT NULL AUTO_INCREMENT,
+    employee_id INT NOT NULL,
+    date DATE NOT NULL,
+    status BOOLEAN NOT NULL,
+    FOREIGN KEY (employee_id) REFERENCES employee(id),
+    PRIMARY KEY (id)
+  )`;
+//task table
+const createTaskTable = `CREATE TABLE IF NOT EXISTS task (
+
+    id INT NOT NULL AUTO_INCREMENT,
+    task VARCHAR(255) NOT NULL,
+    due_date DATE NOT NULL,
+    status VARCHAR(255) NOT NULL,
+    assigned_to INT NOT NULL,
+    FOREIGN KEY (assigned_to) REFERENCES employee(id),
+    PRIMARY KEY (id)
+  )`;
+
+// FOREIGN KEY (project_id) REFERENCES project(id)
+
 connectionString.connect((error) => {
   if (!error) {
     console.log("Connection has been established");
@@ -75,7 +113,11 @@ connectionString.connect((error) => {
                 Here you will be calling the createTable function to create each table passing the above created 
                 variable as a paramter to the function.
                 */
-          createTable(createUsersTable); //creates users table
+          // createTable(createEmployeeTable); //creates employee table
+          // createTable(createUsersTable); //creates users table
+          // createTable(createAttendanceTable); //creates attendance table
+          // createTable(createTaskTable); //creates task table
+
           connectionString.end();
         }
       }
