@@ -30,20 +30,15 @@ router.post("/", (req, res) => {
   const password = req.body.password;
   connection.query(
     {
-      sql: `SELECT * FROM users WHERE users.name='${name}' AND users.email='${email}' AND users.password='${password}'`,
-//       values: [name, email, password],
+      sql: "INSERT INTO users (name, email, password) VALUES (?, ?, ?)",
+      values: [name, email, password],
       timeout: 40000, //40s
     },
     (err, result) => {
       if (err) {
         console.log(err);
       } else {
-        console.log("client has successsfully logged in");
-
-        // navigate to new page now
-        
-        // window.open("/HRSignUp");
-        <Route exact path="/sign" component={Home} />
+        console.log(result);
       }
     }
   );

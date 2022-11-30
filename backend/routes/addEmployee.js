@@ -25,28 +25,27 @@ router.use(express.json());
 router.post("/", (req, res) => {
   console.log(req.body);
   res.json(req.body);
-  const name = req.body.name;
-  const email = req.body.email;
-  const password = req.body.password;
+  const first_name = req.body.first_name;
+  const last_name = req.body.last_name;
+  const designation = req.body.designation;
+  const salary = req.body.salary;
+  const hired_on = req.body.hired_date;
+
   connection.query(
     {
-      sql: `SELECT * FROM users WHERE users.name='${name}' AND users.email='${email}' AND users.password='${password}'`,
-//       values: [name, email, password],
+      sql: "INSERT INTO employee (first_name, last_name, designation, salary, hired_on) VALUES (?, ?, ?,?,?)",
+      values: [first_name, last_name, designation, salary, hired_on],
       timeout: 40000, //40s
     },
     (err, result) => {
       if (err) {
         console.log(err);
       } else {
-        console.log("client has successsfully logged in");
-
-        // navigate to new page now
-        
-        // window.open("/HRSignUp");
-        <Route exact path="/sign" component={Home} />
+        console.log(result);
       }
     }
   );
 });
+
 module.exports = router;
 //
