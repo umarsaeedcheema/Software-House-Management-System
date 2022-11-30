@@ -5,6 +5,7 @@ import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 import RaisePrivilege from "./RaisePrivilege"
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import CreateEmployeeReview from "./CreateEmployeeReview";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
   {
         path: "/raise-privilege",
         element: <RaisePrivilege />,
+  },
+  {
+        path: "/create-employee-review",
+        element: <CreateEmployeeReview />,
   }
 ]);
 

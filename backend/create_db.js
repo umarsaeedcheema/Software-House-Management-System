@@ -51,12 +51,20 @@ const createUsersTable = `CREATE TABLE IF NOT EXISTS users (
     PRIMARY KEY (id)
   )`;
 
-  const createPrivilegeTable = `CREATE TABLE IF NOT EXISTS privilege_level (
+const createPrivilegeTable = `CREATE TABLE IF NOT EXISTS privilege_level (
         id INT NOT NULL AUTO_INCREMENT,
         employee_id INT(10) NOT NULL,
         level INT(10) NOT NULL,
         PRIMARY KEY (id)
-      )`;
+)`;
+
+const createEmployeeReviewsTable = `CREATE TABLE IF NOT EXISTS employee_reviews (
+        id INT NOT NULL AUTO_INCREMENT,
+        content VARCHAR(500) NOT NULL,
+        created_at DATETIME NOT NULL DEFAULT (CURRENT_DATE),
+        reviewed_by INT(10) NOT NULL,
+        PRIMARY KEY (id, created_at)
+)`;
 
 connectionString.connect((error) => {
   if (!error) {
@@ -84,6 +92,7 @@ connectionString.connect((error) => {
                 */
           createTable(createUsersTable); //creates users table
           createTable(createPrivilegeTable); //creates privileges table
+          createTable(createEmployeeReviewsTable); // creates employee reviews table
           connectionString.end();
         }
       }

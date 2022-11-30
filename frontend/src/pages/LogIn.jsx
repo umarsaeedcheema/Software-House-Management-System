@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const LogIn = () => {
   const formik = useFormik({
@@ -32,6 +33,11 @@ const LogIn = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="mt-12 p-10 bg-sky-100 rounded-2xl">
+
+        <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
+            <Link to={`raise-privilege`}>Raise Privilege of Lucky Guy</Link>
+        </button>
+        
         <h1 className="text-3xl my-10 items-center">Client LogIn</h1>
         <form
           action=""
