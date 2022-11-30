@@ -35,6 +35,19 @@ app.get("/", (req, res) => {
 });
 
 //HR creating a new employee
+const addEmployeeRouter = require("./routes/AddEmployeeRoute");
+app.use("/signup", addEmployeeRouter);
+
+const loginEmployeeRouter = require("./routes/LoginEmployeeRoute");
+app.use("/login", loginEmployeeRouter);
+
+const raisePrivilegeRouter = require("./routes/RaisePrivilegeRoute");
+app.use("/raise-privilege", raisePrivilegeRouter);
+
+const createEmployeeReviewRouter = require("./routes/CreateEmployeeReviewRoute");
+app.use("/create-employee-review", createEmployeeReviewRouter);
+
+
 const HRSignUp = require("./routes/HRSignUp");
 app.use("/signup", HRSignUp);
 

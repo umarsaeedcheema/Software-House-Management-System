@@ -2,6 +2,8 @@ import React from "react";
 import App from "../App";
 import ErrorPage from "./ErrorPage";
 import SignUp from "./SignUp";
+import LogIn from "./LogIn";
+import RaisePrivilege from "./RaisePrivilege"
 import LoginPopUp from "../components/LoginPopUp";
 import Login from "./Login";
 import HRHomepage from "./HRHomepage";
@@ -9,6 +11,7 @@ import NoMatch from "./NoMatch";
 import AddEmployee from "./AddEmployee";
 import ViewEmployee from "./ViewEmployee";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import CreateEmployeeReview from "./CreateEmployeeReview";
 
 const routes = [
   {
