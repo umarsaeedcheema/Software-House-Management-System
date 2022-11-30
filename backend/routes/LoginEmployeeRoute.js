@@ -31,7 +31,7 @@ router.post("/", (req, res) => {
   connection.query(
     {
       sql: `SELECT * FROM users WHERE users.name='${name}' AND users.email='${email}' AND users.password='${password}'`,
-//       values: [name, email, password],
+      //       values: [name, email, password],
       timeout: 40000, //40s
     },
     (err, result) => {
@@ -41,9 +41,8 @@ router.post("/", (req, res) => {
         console.log("client has successsfully logged in");
 
         // navigate to new page now
-        
+
         // window.open("/HRSignUp");
-        <Route exact path="/sign" component={Home} />
       }
     }
   );
