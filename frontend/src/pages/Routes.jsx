@@ -4,10 +4,20 @@ import ErrorPage from "./ErrorPage";
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
 import RaisePrivilege from "./RaisePrivilege"
+import LoginPopUp from "../components/LoginPopUp";
+import Login from "./Login";
+import HRHomepage from "./HRHomepage";
+import NoMatch from "./NoMatch";
+import AddEmployee from "./AddEmployee";
+import ViewEmployee from "./ViewEmployee";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
 
-const router = createBrowserRouter([
+const routes = [
+  {
+    path: "*",
+    element: <NoMatch />,
+  },
   {
     path: "/",
     element: <App />,
@@ -16,20 +26,37 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignUp />,
+    errorElement: <ErrorPage></ErrorPage>,
   },
   {
-        path: "/login",
-        element: <LogIn />,
+    path: "/loginpopup",
+    element: <LoginPopUp></LoginPopUp>,
+    errorElement: <ErrorPage />,
   },
   {
-        path: "/raise-privilege",
-        element: <RaisePrivilege />,
+    path: "/login",
+    element: <Login></Login>,
+    errorElement: <ErrorPage />,
   },
   {
-        path: "/create-employee-review",
-        element: <CreateEmployeeReview />,
-  }
-]);
+    path: "hrHome",
+    element: <HRHomepage />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "addEmployee",
+        element: <AddEmployee />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "view-employee",
+        element: <ViewEmployee />,
+        errorElement: <ErrorPage />,
+      },
+    ],
+  },
+];
+const router = createBrowserRouter(routes);
 
 const Routes = () => {
   return <RouterProvider router={router} />;

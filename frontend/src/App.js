@@ -9,7 +9,7 @@ function App() {
       </h1>
       <div className="grid grid-flow-row-dense grid-cols-11 mt-10 gap-x-4 h-20">
         <div className="col-start-2 col-span-3 auto-cols-auto shadow bg-sky-100 hover:bg-blue-200">
-          <p className="mt-1">Client SignUp/LogIn</p>
+          <p className="mt-1">HR SignUp and LogIn</p>
           <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 mr-1 hover:bg-blue-800">
             <Link to={`signup`}>Sign Up</Link>
           </button>
@@ -24,10 +24,7 @@ function App() {
           </button>
         </div>
         <div className="col-start-8 col-span-3 auto-cols-auto shadow bg-sky-100">
-          <p className="mt-1">HR LogIn</p>
-          <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
-            <Link to={`login`}>Log In</Link>
-          </button>
+          <p className="mt-1">PM LogIn</p>
         </div>
       </div>
 
