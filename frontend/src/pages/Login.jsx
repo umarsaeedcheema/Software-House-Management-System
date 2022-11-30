@@ -3,8 +3,10 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -27,6 +29,7 @@ const LogIn = () => {
       axios.post("http://localhost:3001/login", values).then((res) => {
         console.log(res);
       });
+      navigate("/hrHome");
     },
   });
   console.log(formik.errors);
