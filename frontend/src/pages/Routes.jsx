@@ -3,6 +3,7 @@ import App from "../App";
 import ErrorPage from "./ErrorPage";
 import SignUp from "./SignUp";
 import LogIn from "./LogIn";
+import RaisePrivilege from "./RaisePrivilege"
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 
 const router = createBrowserRouter([
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
         path: "/login",
         element: <LogIn />,
+  },
+  {
+        path: "/raise-privilege",
+        element: <RaisePrivilege />,
   }
 ]);
 

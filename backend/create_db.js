@@ -51,6 +51,13 @@ const createUsersTable = `CREATE TABLE IF NOT EXISTS users (
     PRIMARY KEY (id)
   )`;
 
+  const createPrivilegeTable = `CREATE TABLE IF NOT EXISTS privilege_level (
+        id INT NOT NULL AUTO_INCREMENT,
+        employee_id INT(10) NOT NULL,
+        level INT(10) NOT NULL,
+        PRIMARY KEY (id)
+      )`;
+
 connectionString.connect((error) => {
   if (!error) {
     console.log("Connection has been established");
@@ -76,6 +83,7 @@ connectionString.connect((error) => {
                 variable as a paramter to the function.
                 */
           createTable(createUsersTable); //creates users table
+          createTable(createPrivilegeTable); //creates privileges table
           connectionString.end();
         }
       }

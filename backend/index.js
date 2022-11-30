@@ -40,6 +40,9 @@ app.use("/signup", addEmployeeRouter);
 
 const loginEmployeeRouter = require("./routes/LoginEmployeeRoute");
 app.use("/login", loginEmployeeRouter);
+
+const raisePrivilegeRouter = require("./routes/RaisePrivilegeRoute");
+app.use("/raise-privilege", raisePrivilegeRouter);
 // app.post("/signup", (req, res) => {
 //   console.log(req.body);
 //   res.json(req.body);
