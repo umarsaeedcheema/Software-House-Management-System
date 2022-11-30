@@ -56,3 +56,7 @@ app.use("/signup", HRSignUp);
 //HR creating a new employee
 const addEmployee = require("./routes/addEmployee");
 app.use("/addEmployee", addEmployee);
+
+//HR viewing all employees
+const viewEmployee = require("./routes/viewEmployee");
+app.use("/viewEmployee", viewEmployee);

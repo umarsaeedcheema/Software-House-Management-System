@@ -49,7 +49,7 @@ const routes = [
         errorElement: <ErrorPage />,
       },
       {
-        path: "view-employee",
+        path: "viewEmployee",
         element: <ViewEmployee />,
         errorElement: <ErrorPage />,
       },
