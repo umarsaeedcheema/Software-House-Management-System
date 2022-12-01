@@ -68,7 +68,7 @@ const createEmployeeReviewsTable = `CREATE TABLE IF NOT EXISTS employee_reviews 
 
 // employee table
 // added salary in this
-const createEmployeeTable = `CREATE TABLE IF NOT EXISTS employee (
+const createEmployeeTable = `CREATE TABLE IF NOT EXISTS employees (
 
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(255) NOT NULL,

@@ -23,7 +23,7 @@ connection.connect((err) => {
 router.use(express.json());
 
 router.get("/", (req, res) => {
-  connection.query("SELECT * FROM employee", (err, result) => {
+  connection.query("SELECT * FROM employees", (err, result) => {
     if (err) {
       console.log(err);
     } else {
