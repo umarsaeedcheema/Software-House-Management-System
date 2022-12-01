@@ -52,6 +52,21 @@ const routes = [
         element: <ViewEmployee />,
         errorElement: <ErrorPage />,
       },
+      {
+        path: "raise-privilege",
+        element: <RaisePrivilege/>,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "create-employee-review",
+        element: <CreateEmployeeReview/>,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "view-employees-review",
+        element: <ViewEmployee/>,
+        errorElement: <ErrorPage />,
+      },
     ],
   },
 ];
