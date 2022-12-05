@@ -53,6 +53,7 @@ router.post("/", (req, res) => {
     }
   );
 
+  // query for inserting into privilege level
   connection.query(
         {       
                 // this uses the ID of employee insertion query as primary key for employee id here
@@ -68,6 +69,9 @@ router.post("/", (req, res) => {
                 }
         }
   );
+
+  // query for inserting into accounts_info
+  
 });
 
 module.exports = router;

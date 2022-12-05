@@ -28,8 +28,18 @@ const LogIn = () => {
       alert(JSON.stringify(values, null, 2));
       axios.post("http://localhost:3001/login", values).then((res) => {
         console.log(res);
+        if(res.statusText == "OK")
+        {
+                console.log('Successful login');
+                navigate("/hrHome");
+        }
+                
+        else
+        {
+                console.log('Login failed');
+        }
       });
-      navigate("/hrHome");
+      
     },
   });
   console.log(formik.errors);
