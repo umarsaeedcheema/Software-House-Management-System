@@ -2,8 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import {Link, Routes, Route, useNavigate} from 'react-router-dom';
-
+import { Link, Routes, Route, useNavigate } from "react-router-dom";
 
 const CreateEmployeeReview = () => {
   const formik = useFormik({
@@ -20,19 +19,20 @@ const CreateEmployeeReview = () => {
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      axios.post("http://localhost:3001/create-employee-review", values).then((res) => {
-        console.log(res);
-        
-        
-        
-      });
+      axios
+        .post("http://localhost:3001/create-employee-review", values)
+        .then((res) => {
+          console.log(res);
+        });
     },
   });
   console.log(formik.errors);
   return (
     <div className="flex flex-col items-center">
       <div className="mt-12 p-10 bg-sky-100 rounded-2xl">
-        <h1 className="text-3xl my-10 items-center">Create Employee Yearly Review</h1>
+        <h1 className="text-3xl my-10 items-center">
+          Create Employee Yearly Review
+        </h1>
         <form
           action=""
           className="flex flex-col "
@@ -41,7 +41,9 @@ const CreateEmployeeReview = () => {
           <label
             htmlFor="review"
             className={`text-gray-900 block pb-2 ${
-              formik.touched.content && formik.errors.content ? "text-red-400" : ""
+              formik.touched.content && formik.errors.content
+                ? "text-red-400"
+                : ""
             }`}
           >
             {formik.touched.content && formik.errors.content
@@ -56,8 +58,6 @@ const CreateEmployeeReview = () => {
             onChange={formik.handleChange}
             value={formik.values.content}
           />
-
-          
 
           <button
             type="submit"

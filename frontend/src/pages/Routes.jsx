@@ -11,6 +11,7 @@ import AddEmployee from "./AddEmployee";
 import ViewEmployee from "./ViewEmployee";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
+import DeletePopUp from "../components/DeletePopUp";
 
 const routes = [
   {
@@ -54,20 +55,25 @@ const routes = [
       },
       {
         path: "raise-privilege",
-        element: <RaisePrivilege/>,
+        element: <RaisePrivilege />,
         errorElement: <ErrorPage />,
       },
       {
         path: "create-employee-review",
-        element: <CreateEmployeeReview/>,
+        element: <CreateEmployeeReview />,
         errorElement: <ErrorPage />,
       },
       {
         path: "view-employees-review",
-        element: <ViewEmployee/>,
+        element: <ViewEmployee />,
         errorElement: <ErrorPage />,
       },
     ],
+  },
+  {
+    path: "/deletepopup",
+    element: <DeletePopUp />,
+    errorElement: <ErrorPage />,
   },
 ];
 const router = createBrowserRouter(routes);
