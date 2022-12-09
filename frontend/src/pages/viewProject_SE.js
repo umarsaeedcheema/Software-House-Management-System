@@ -2,26 +2,20 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Dropdown } from 'bootstrap';
 
 
 // import ProjectData from "../components/ProjectsData";
 
 const ProjectData = () => {
   const [projects, setprojects] = useState([]);
-  const [open, setOpen] = React.useState(false);
-
-  const handleOpen = () => {
-    setOpen(!open);
-  };
-
-
+  
   useEffect(() => {
     axios.get("http://localhost:3001/viewProject").then((response) => {
         console.log(response.data)
       setprojects(response.data);
     }).catch((err) => {console.log(err)});
   }, []);
-  
   const projectData = projects.map((project) => {
     return (
       <div className="flex flex-col items-center">
@@ -30,17 +24,29 @@ const ProjectData = () => {
             <h3>Project Name: {project.name}</h3>
             <p>Project Start Time: {project.start_time}</p>
             <p>Project End Time: {project.end_time}</p>
-            <p>Project Assigned to : {project.assigned_to_pm}</p>
-            <p>Project Revenue: {project.revenue} </p>
-            <p>Project Client: {project.client_id}</p>
-            <p>Project Status: {project.status}</p>
+            <p>Project Manager : {project.assigned_to_pm}</p>
+           
+            {/* <div className="dropdown">
+            <button onClick={handleOpen}>{project.status}</button>
+            {open ? (
+              <ul className="menu">
+                <li className="menu-item">
+                  <button onClick={handleMenuOne}>Complete</button>
+                </li>
+                <li className="menu-item">
+                  <button onClick={handleMenuTwo}>In Progress</button>
+                </li>
+                <li className="menu-item">
+                  <button onClick={handleMenuTwo}>Cancelled</button>
+                </li>
+              </ul>
+            ) : null}
+          </div> */}
         </div>
         </div>
       
     );
-  }
-  );
-  
+  });
   // return <div></div>
   return <div>{projectData}</div>;
 };

@@ -18,7 +18,8 @@ import CreateClientProfile from './createClientProfile';
 import ViewProject from './ViewProject';
 import ViewClientProfile from './ViewClientProfile';
 import PMHomepage  from "./PMHomePage";
-
+import SEHomePage from "./SEHomePage"; 
+import ViewProjectSE from "./viewProject_SE"
 
 const routes = [
   {
@@ -113,13 +114,30 @@ const routes = [
         errorElement: <ErrorPage />,
       },
       {
-        path: "/updatepassword",
+        path: "updatepassword",
         element: <UpdatePassword />,
         errorElement: <ErrorPage />
       },
     ],
   },
-  
+  {
+    path: "seHome",
+    element: <SEHomePage />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "viewproject-se",
+        element: <ViewProjectSE />,
+        errorElement: <ErrorPage />,
+      },
+      
+      {
+        path: "updatepassword",
+        element: <UpdatePassword />,
+        errorElement: <ErrorPage />
+      },
+    ],
+  },
 
 ];
 const router = createBrowserRouter(routes);
