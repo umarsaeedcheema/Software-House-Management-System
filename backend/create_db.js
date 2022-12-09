@@ -11,11 +11,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //DO NOT MODIFY ANY PART OF THIS CODE USELESS TOLD TO DO SO.
 */
 /*Add you connestion details to the env file*/
+
 var connectionString = mysql.createConnection({
   host: process.env.host,
   user: process.env.user,
   password: process.env.password,
-  database: process.env.database,
 });
 function createTable(CreateQuerry) {
   console.log(CreateQuerry);
@@ -43,7 +43,7 @@ const createTablePromised = promisify(createTable);
     Here you will be writing your create table queries and storing them in a const variable.
 
 */
-const createUsersTable = `CREATE TABLE IF NOT EXISTS users (
+const createUsersTable = `CREATE TABLE IF NOT EXISTS soft_management.users (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
@@ -51,14 +51,14 @@ const createUsersTable = `CREATE TABLE IF NOT EXISTS users (
     PRIMARY KEY (id)
   )`;
 
-const createPrivilegeTable = `CREATE TABLE IF NOT EXISTS privilege_level (
+const createPrivilegeTable = `CREATE TABLE IF NOT EXISTS soft_management.privilege_level (
         id INT NOT NULL AUTO_INCREMENT,
         employee_id INT(10) NOT NULL,
         level INT(10) NOT NULL,
         PRIMARY KEY (id)
 )`;
 
-const createEmployeeReviewsTable = `CREATE TABLE IF NOT EXISTS employee_reviews (
+const createEmployeeReviewsTable = `CREATE TABLE IF NOT EXISTS soft_management.employee_reviews (
         id INT NOT NULL AUTO_INCREMENT,
         content VARCHAR(500) NOT NULL,
         created_at DATETIME NOT NULL,
@@ -68,7 +68,7 @@ const createEmployeeReviewsTable = `CREATE TABLE IF NOT EXISTS employee_reviews 
 
 // employee table
 // added salary in this
-const createEmployeeTable = `CREATE TABLE IF NOT EXISTS employees (
+const createEmployeeTable = `CREATE TABLE IF NOT EXISTS soft_management.employees (
 
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(255) NOT NULL,
@@ -80,12 +80,14 @@ const createEmployeeTable = `CREATE TABLE IF NOT EXISTS employees (
     PRIMARY KEY (id)
 )`;
 
-const queries = ["CREATE TABLE IF NOT EXISTS soft_management.account_info (email_address varchar(200) PRIMARY KEY, password varchar(200))",
-"CREATE TABLE IF NOT EXISTS soft_management.projects ( id int PRIMARY KEY, name varchar(200),  start_time date, end_time date, revenue int, client_id int, assigned_to_pm int, status varchar(200))",
+const queries = [
 "CREATE TABLE IF NOT EXISTS soft_management.employees (id int PRIMARY KEY, first_name varchar(255), last_name varchar(255), designation varchar(63), hired_on date)",
 "CREATE TABLE IF NOT EXISTS soft_management.account_info (employee_id int, email_address varchar(255) PRIMARY KEY, password varchar(511), FOREIGN KEY (employee_id) REFERENCES employees(id))",
+"CREATE TABLE IF NOT EXISTS soft_management.projects (id int NOT NULL AUTO_INCREMENT, name varchar(200), start_time DATE, end_time DATE, revenue int, client_id int, assigned_to_pm int, status varchar (200), PRIMARY KEY (id))",
 "CREATE TABLE IF NOT EXISTS soft_management.tasks (id int PRIMARY KEY, task varchar(255), due_date timestamp, assigned_to int, project_id int, status varchar(255), FOREIGN KEY (assigned_to) REFERENCES employees(id), FOREIGN KEY (project_id) REFERENCES projects(id))",
-"CREATE TABLE IF NOT EXISTS soft_management.assigned_swes (project_id int, employee_id int, FOREIGN KEY (project_id) REFERENCES projects(id), FOREIGN KEY (employee_id) REFERENCES employees(id))"
+"CREATE TABLE IF NOT EXISTS soft_management.assigned_swes (project_id int, employee_id int, FOREIGN KEY (project_id) REFERENCES projects(id), FOREIGN KEY (employee_id) REFERENCES employees(id))",
+"CREATE TABLE IF NOT EXISTS soft_management.client_reviews (client_id int, project_id int, content varchar(250), submitted_by int, PRIMARY KEY(client_id, project_id, submitted_by))",
+"CREATE TABLE IF NOT EXISTS soft_management.clients (client_id int NOT NULL AUTO_INCREMENT, name varchar(250), PRIMARY KEY (client_id))",
 ];
 
 connectionString.connect((error) => {
