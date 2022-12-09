@@ -7,6 +7,7 @@ class UpdatePassword extends React.Component {
     super(props);
 
     this.state = {
+      employee_id: "",
       oldpassword: "",
       newpassword: "",
       newpasswordconfirmation: "",
@@ -17,6 +18,11 @@ class UpdatePassword extends React.Component {
   componentDidMount() {
     this.setState({ employee: this.props.employee });
   }
+
+  onIDChange = (event) => {
+    this.setState({ employee_id: event.target.value });
+    console.log(this.state);
+  };
 
   onOldPasswordChange = (event) => {
     this.setState({ oldpassword: event.target.value });
@@ -72,6 +78,16 @@ class UpdatePassword extends React.Component {
               className="updatepassword-form-container"
               onSubmit={this.onUpdatePassword}
             >
+              <div>
+                <label htmlFor="name" className="text-gray-900 block pb-2">
+                  ID:
+                </label>
+                <input
+                  className="ml-2 border border-gray-400 rounded"
+                  type="text"
+                  onChange={this.onIDChange}
+                />
+              </div>
               <div>
                 <label htmlFor="name" className="text-gray-900 block pb-2">
                   Old Password:

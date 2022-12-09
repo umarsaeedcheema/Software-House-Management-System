@@ -1,7 +1,10 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 const HRHomepage = () => {
+  const { state } = useLocation();
+  // console.log("hr", state);
+
   return (
     <div>
       <h1 className="flex justify-center">

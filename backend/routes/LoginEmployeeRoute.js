@@ -3,6 +3,7 @@ const router = express.Router();
 const mysql = require("mysql");
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
+const bcrypt = require("bcrypt");
 dotenv.config({ path: ".env" });
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
@@ -23,23 +24,36 @@ connection.connect((err) => {
 router.use(express.json());
 
 router.post("/", (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   // res.json(req.body);
 
   const email = req.body.email;
-  connection.query(
-    "SELECT designation from employees WHERE email = ?",
-    [email],
-    (err, result) => {
-      if (result.length > 0) {
-        console.log("result", result);
-        console.log(result[0].designation);
-        res.send({ designation: result[0].designation });
-      } else {
-        console.log("No such user");
-      }
+  const password = req.body.password;
+  connection.query("SELECT * FROM account_info WHERE email_address=?;", [email], (err_1, rows) => {
+    if (err_1 || rows.length === 0) {
+      res.send({ statusText: "Wrong password"});
     }
-  );
+
+    const isValid = bcrypt.compareSync(password, rows[0].password);
+
+    if (!isValid) {
+      console.log("Wrong password")
+      res.send({ statusText: "Wrong password"});
+    } else {
+      connection.query(
+        "SELECT first_name, last_name, id, employees.designation FROM employees JOIN account_info ON account_info.employee_id=employees.id WHERE account_info.email_address = ?",
+        [email],
+        (err, result) => {
+          if (result.length > 0) {
+            console.log("result", result);
+            console.log(result[0].designation);
+            res.send({ name: result[0].first_name + " " + result[0].last_name, id: result[0].id ,designation: result[0].designation, statusText: "OK"});
+          } else {
+            console.log("No such user");
+          }
+        });
+    }    
+  });
 });
 
 module.exports = router;

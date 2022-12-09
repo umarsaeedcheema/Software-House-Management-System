@@ -8,15 +8,16 @@ import { Link, useNavigate } from "react-router-dom";
 const LogIn = () => {
   const user = {
     id: "",
-    name: "",
+    // name: "",
     email: "",
   };
+  const statusText = "";
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
       password: "",
-      name: "",
+      // name: "",
       // designation: "",
     },
     //validation
@@ -25,29 +26,31 @@ const LogIn = () => {
       password: Yup.string()
         .min(8, "Must be at least 8 characters")
         .required("Required"),
-      name: Yup.string()
-        .min(3, "Must be at least 3 characters")
-        .required("Required"),
+      // name: Yup.string()
+      //   .min(3, "Must be at least 3 characters")
+      //   .required("Required"),
       // designation: Yup.string().required("Required"),
     }),
 
     onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
+      console.log("here");
+      // alert(JSON.stringify(values, null, 2));
       //get request to check designation
 
       axios.post("http://localhost:3001/login", values).then((res) => {
         console.log("res", res);
-        if (res.statusText === "OK") {
-          if (res.data.designation === "SWE") {
-            navigate("/swe");
-          } else if (res.data.designation === "PM") {
-            navigate("/pm");
-          } else if (res.data.designation === "HR") {
-            navigate("/hr");
+        if (res.data.statusText === "OK") {
+          if (res.data.designation === "SWE" || res.data.designation === "Software Engineer") {
+            navigate("/swe", {"state": {"name": res.data.name, "id": res.data.id}});
+          } else if (res.data.designation === "PM" || res.data.designation === "Project Manager") {
+            navigate("/pm", {"state": {"name": res.data.name, "id": res.data.id}});
+          } else if (res.data.designation === "HR" || res.data.designation === "Human Resources") {
+            navigate("/hr", {"state": {"name": res.data.name, "id": res.data.id}});
           }
           console.log("Successful login");
         } else {
-          console.log("Login failed");
+          alert("Login failed");
+          // statusText = res.data.statusText;
         }
       });
     },
@@ -56,13 +59,13 @@ const LogIn = () => {
   return (
     <div className="flex flex-col items-center">
       <div className="mt-12 p-10 bg-sky-100 rounded-2xl">
-        <h1 className="text-3xl my-5 mx-12"> LogIn</h1>
+        <h1 className="text-3xl my-5 mx-12"> Log In</h1>
         <form
           action=""
           className="flex flex-col "
           onSubmit={formik.handleSubmit}
         >
-          <label
+          {/*<label
             htmlFor="name"
             className={`text-gray-900 block pb-2 ${
               formik.touched.name && formik.errors.name ? "text-red-400" : ""
@@ -79,7 +82,7 @@ const LogIn = () => {
             className="ml-2 border border-gray-400 rounded"
             onChange={formik.handleChange}
             value={formik.values.name}
-          />
+          />*/}
           <label
             htmlFor="email"
             className={`text-gray-900 block pb-2 ${
@@ -145,7 +148,7 @@ const LogIn = () => {
             <option value="PM">Project Manager</option>
             <option value="HR">Human Resource</option>
           </select> */}
-
+          <div>{statusText}</div>
           <button
             type="submit"
             className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-2/4 hover:bg-blue-800"
