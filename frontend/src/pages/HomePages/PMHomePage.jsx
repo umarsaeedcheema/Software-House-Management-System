@@ -1,7 +1,7 @@
 import React from "react";
 
 const PMHomePage = () => {
-  return <div>PMHomePage</div>;
+  return <div>PMHome Page</div>;
 };
 
 export default PMHomePage;
