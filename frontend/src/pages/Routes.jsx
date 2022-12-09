@@ -11,6 +11,7 @@ import AddEmployee from "./AddEmployee";
 import ViewEmployee from "./ViewEmployee";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
+import UpdatePassword from '../components/UpdatePassword';
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: "/login",
     element: <Login></Login>,
     errorElement: <ErrorPage />,
+  },
+  {
+    path: "/updatepassword",
+    element: <UpdatePassword />,
+    errorElement: <ErrorPage />
   },
   {
     path: "hrHome",
