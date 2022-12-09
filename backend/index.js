@@ -53,3 +53,7 @@ app.use("/addEmployee", addEmployee);
 //HR viewing all employees
 const viewEmployee = require("./routes/viewEmployee");
 app.use("/viewEmployee", viewEmployee);
+
+//update Password
+const updatePassword = require("./routes/updatePassword");
+app.use("/updatepassword", updatePassword);
