@@ -9,13 +9,10 @@ import HRHomepage from "./HRHomepage";
 import NoMatch from "./NoMatch";
 import AddEmployee from "./AddEmployee";
 import ViewEmployee from "./ViewEmployee";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
 
-import DeletePopUp from "../components/DeletePopUp";
-
-import UpdatePassword from '../components/UpdatePassword';
-
+import UpdatePassword from "../components/UpdatePassword";
 
 const routes = [
   {
@@ -45,7 +42,8 @@ const routes = [
   {
     path: "/updatepassword",
     element: <UpdatePassword />,
-    errorElement: <ErrorPage />
+
+    errorElement: <ErrorPage />,
   },
   {
     path: "hrHome",
@@ -78,11 +76,6 @@ const routes = [
         errorElement: <ErrorPage />,
       },
     ],
-  },
-  {
-    path: "/deletepopup",
-    element: <DeletePopUp />,
-    errorElement: <ErrorPage />,
   },
 ];
 const router = createBrowserRouter(routes);
