@@ -53,3 +53,7 @@ app.use("/addEmployee", addEmployee);
 //HR viewing all employees
 const viewEmployee = require("./routes/viewEmployee");
 app.use("/viewEmployee", viewEmployee);
+
+//delete and employee
+const deleteEmployee = require("./routes/deleteEmployeeRoute");
+app.use("/deleteEmployee", deleteEmployee);
