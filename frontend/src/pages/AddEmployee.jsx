@@ -29,6 +29,7 @@ const AddEmployee = () => {
       alert(JSON.stringify(values, null, 2));
       axios.post("http://localhost:3001/addEmployee", values).then((res) => {
         console.log(res);
+        window.location.reload();
       });
     },
   });
