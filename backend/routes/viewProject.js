@@ -22,8 +22,8 @@ connection.connect((err) => {
 // // parsing data
 router.use(express.json());
 
-router.get("/", (req, res) => {
-  connection.query("SELECT * FROM projects", (err, result) => {
+router.post("/", (req, res) => {
+  connection.query(`SELECT * FROM projects WHERE assigned_to_pm=${req.body.id}`, (err, result) => {
     if (err) {
         // console.log("line 28")
       console.log(err);
