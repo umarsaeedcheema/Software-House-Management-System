@@ -12,6 +12,8 @@ import ViewEmployee from "./ViewEmployee";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
 import UpdatePassword from '../components/UpdatePassword';
+import CreateProject from "./createProject";
+import ViewProject from "./viewProject";
 
 const routes = [
   {
@@ -42,6 +44,17 @@ const routes = [
     path: "/updatepassword",
     element: <UpdatePassword />,
     errorElement: <ErrorPage />
+  },
+  {
+    path: "/createProject",
+    element : <CreateProject/>,
+    errorElement : <ErrorPage/>
+  },
+  {
+    path : "/viewProject",
+    element: <ViewProject/>,
+    errorElement : <ErrorPage/>
+
   },
   {
     path: "hrHome",
