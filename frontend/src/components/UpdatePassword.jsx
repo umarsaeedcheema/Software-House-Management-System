@@ -15,7 +15,7 @@ class UpdatePassword extends React.Component {
 	}
 
 	componentDidMount() {
-		this.setState({ employee: this.props.employee})
+		this.setState({ employee_id: 1})
 	}
 
 	onOldPasswordChange = (event) => {
@@ -40,7 +40,7 @@ class UpdatePassword extends React.Component {
     	{
     		console.log('error')
     	} else {
-    		fetch(BACKEND_LINK+'/updatepassword', {
+    		fetch('http://localhost:3001/updatepassword', {
 				method: 'post',
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify(this.state)
