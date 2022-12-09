@@ -3,7 +3,16 @@ import { Link, Outlet, useLocation } from "react-router-dom";
 
 const HRHomepage = () => {
   const { state } = useLocation();
-  // console.log("hr", state);
+  const windowState = JSON.parse(window.localStorage.getItem("state"));
+  
+  if (state) {
+    if ( windowState === null || state.id != windowState.id) {
+      const windowState = window.localStorage.setItem("state", JSON.stringify(state));
+    }
+  }
+  
+  console.log("state", state);
+  console.log("windowState", windowState);
 
   return (
     <div>
