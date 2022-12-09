@@ -17,23 +17,26 @@ const HRHomepage = () => {
           <button className="bg-blue-200 hover:bg-blue-400 p-4 rounded-2xl">
             <Link to={`viewEmployee`}>View Employee</Link>
           </button>
-          <button className="bg-blue-200 hover:bg-blue-400 p-4 rounded-2xl">
+          {/* <button className="bg-blue-200 hover:bg-blue-400 p-4 rounded-2xl">
             Fire Employee
-          </button>
+          </button> */}
         </div>
 
         <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
-                <Link to={`raise-privilege`}>Raise Privilege Level of Employee</Link>
+          <Link to={`raise-privilege`}>Raise Privilege Level of Employee</Link>
         </button>
 
         <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
-                <Link to={`create-employee-review`}>Create Employee's Yearly Review</Link>
+          <Link to={`create-employee-review`}>
+            Create Employee's Yearly Review
+          </Link>
         </button>
 
         <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
-                <Link to={`view-employees-review`}>View Employees' Yearly Review</Link>
+          <Link to={`view-employees-review`}>
+            View Employees' Yearly Review
+          </Link>
         </button>
-        
       </nav>
       <Outlet></Outlet>
     </div>

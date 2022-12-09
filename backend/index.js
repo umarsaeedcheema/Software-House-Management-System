@@ -60,6 +60,11 @@ app.use("/addEmployee", addEmployee);
 const viewEmployee = require("./routes/viewEmployee");
 app.use("/viewEmployee", viewEmployee);
 
+
+//delete and employee
+const deleteEmployee = require("./routes/deleteEmployeeRoute");
+app.use("/deleteEmployee", deleteEmployee);
+
 //update Password
 const updatePassword = require("./routes/updatePassword");
 app.use("/updatepassword", updatePassword);
@@ -74,4 +79,10 @@ app.use('/viewclientprofile', viewClientProfile);
 const updateProject = require("./routes/updateProject")
 app.use( '/updateProject' ,updateProject)
 
+const createProject = require("./routes/createProject");
+app.use('/createproject' , createProject)
+
+const viewProject = require("./routes/viewProject");
+app.use('/viewProject', viewProject)
 module.exports = app;
+

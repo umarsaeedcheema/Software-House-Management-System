@@ -73,6 +73,7 @@ const createEmployeeTable = `CREATE TABLE IF NOT EXISTS soft_management.employee
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
     designation VARCHAR(255) NOT NULL,
     salary INT(10) NOT NULL,
     hired_on DATE NOT NULL,
@@ -116,6 +117,7 @@ connectionString.connect((error) => {
           createTable(createUsersTable); //creates users table
           createTable(createPrivilegeTable); //creates privileges table
           createTable(createEmployeeReviewsTable); // creates employee reviews table
+          createTable(createEmployeeTable); // creates employee table
           connectionString.end();
         }
       }
