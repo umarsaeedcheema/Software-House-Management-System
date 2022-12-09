@@ -22,7 +22,6 @@ import SEHomePage from "./SEHomePage";
 import ViewProjectSE from "./viewProject_SE"
 import CreateProject from "./createProject";
 import ViewProject from "./viewProject";
-import UpdatePassword from "../components/UpdatePassword";
 import DeletePopUp from "../components/DeletePopUp";
 
 const routes = [

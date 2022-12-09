@@ -23,25 +23,25 @@ class CreateProject extends React.Component {
     }
     render() {
         return (
-            <div className = "App">
+            <div className = "p-10 bg-sky-100 rounded-2xl myflex-container">
                 <h1>Create Project</h1>
                 <p>Please fill in the form below to create a project</p>
-                <form onSubmit={(e) => this.validate(e)}>
+                <form onSubmit={(e) => this.validate(e)} className="form-myflex-container">
                     <label> Project Name: </label><br/>
-                    <input type="text" id='form_name'></input><br/>
+                    <input className="bordersolid text-gray-900 block pb-2" type="text" id='form_name'></input><br/>
                     {/* <label> Project Description: </label><br/>
                     <input type="text" id='form_description'></input><br/> */}
-                    <label> Assigned to: </label><br/>
-                    <input type="text" id='assigned_to'></input><br/>
+                    <label> Assigned to PM ID: </label><br/>
+                    <input className="bordersolid text-gray-900 block pb-2" type="text" id='assigned_to'></input><br/>
                     <label> Start Time : </label><br/>
-                    <input type = "Date" id = "date_start" ></input><br/>
+                    <input className="bordersolid text-gray-900 block pb-2" type = "Date" id = "date_start" ></input><br/>
                     <label > End Time : </label><br/>
-                    <input type = "Date" id = "date_end" ></input><br/>
+                    <input className="bordersolid text-gray-900 block pb-2" type = "Date" id = "date_end" ></input><br/>
                     <label> Revenue : </label> <br/>
-                    <input type = "number" id = "revenue"></input><br/>
+                    <input className="bordersolid text-gray-900 block pb-2" type = "number" id = "revenue"></input><br/>
                     <label> Client ID : </label><br/>
-                    <input type = "number" id = "client_id"></input><br/>
-                    <br/><input type="submit" id='submit_create_form' value = "Create Project" onClick = {(e)=>this.validate(e)}></input>
+                    <input className="bordersolid text-gray-900 block pb-2" type = "number" id = "client_id"></input><br/>
+                    <br/><input className="custombutton bg-blue-500 text-white rounded hover:bg-blue-800" type="submit" id='submit_create_form' value = "Create Project" onClick = {(e)=>this.validate(e)}></input>
                 </form>
             </div>
         );
@@ -77,11 +77,11 @@ class CreateProject extends React.Component {
             // console.log("Please fill all the fields");
             alert("Please fill all the fields");
         }
-        else if(date_end < current_date)
+        else if(Date(date_end) < Date(current_date))
         {
             alert("Please select a valid date")
         }
-        else if(date_end < date_start)
+        else if(Date(date_end) < Date(date_start))
         {
             // console.log("here")
             alert("End date must be greater than start date")
@@ -110,7 +110,9 @@ class CreateProject extends React.Component {
         // console.log(request)
         axios.post('http://localhost:3001/createproject', request)
         .then(resp => {
-            alert(JSON.stringify(resp.data, null,2));
+            // console.log(resp);
+            alert(JSON.stringify(resp.data.message, null,2));
+            
         })
         .catch( err => {
             console.log(err);
