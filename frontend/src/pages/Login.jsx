@@ -11,6 +11,7 @@ const LogIn = () => {
     // name: "",
     email: "",
   };
+  const statusText = "";
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -33,12 +34,12 @@ const LogIn = () => {
 
     onSubmit: (values) => {
       console.log("here");
-      alert(JSON.stringify(values, null, 2));
+      // alert(JSON.stringify(values, null, 2));
       //get request to check designation
 
       axios.post("http://localhost:3001/login", values).then((res) => {
-        // console.log("res", res);
-        if (res.statusText === "OK") {
+        console.log("res", res);
+        if (res.data.statusText === "OK") {
           if (res.data.designation === "SWE" || res.data.designation === "Software Engineer") {
             navigate("/swe", {"state": {"name": res.data.name, "id": res.data.id}});
           } else if (res.data.designation === "PM" || res.data.designation === "Project Manager") {
@@ -48,8 +49,8 @@ const LogIn = () => {
           }
           console.log("Successful login");
         } else {
-          console.log("Login failed");
-          alert("Login failed.");
+          alert("Login failed");
+          // statusText = res.data.statusText;
         }
       });
     },
@@ -147,7 +148,7 @@ const LogIn = () => {
             <option value="PM">Project Manager</option>
             <option value="HR">Human Resource</option>
           </select> */}
-
+          <div>{statusText}</div>
           <button
             type="submit"
             className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-2/4 hover:bg-blue-800"

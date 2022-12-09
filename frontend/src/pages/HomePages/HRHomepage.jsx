@@ -2,7 +2,7 @@ import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 const HRHomepage = () => {
-  // const { state } = useLocation();
+  const { state } = useLocation();
   // console.log("hr", state);
 
   return (
