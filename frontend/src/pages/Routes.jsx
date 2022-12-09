@@ -15,6 +15,8 @@ import UpdatePassword from "../components/UpdatePassword";
 import DeletePopUp from "../components/DeletePopUp";
 import SEHomePage from "./HomePages/SEHomePage";
 import PMHomePage from "./HomePages/PMHomePage";
+import ViewProject from "./viewProject";
+import CreateProject from "./createProject";
 
 const routes = [
   {
@@ -48,7 +50,7 @@ const routes = [
     errorElement: <ErrorPage />,
   },
   {
-    path: "hrHome",
+    path: "hr",
     element: <HRHomepage />,
     errorElement: <ErrorPage />,
     children: [
@@ -98,6 +100,23 @@ const routes = [
     path: "/pm",
     element: <PMHomePage />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "createproject",
+        element: <CreateProject />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "viewproject",
+        element: <ViewProject />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "updatepassword",
+        element: <UpdatePassword />,
+        errorElement: <ErrorPage />,
+      },
+    ],
   },
 ];
 const router = createBrowserRouter(routes);
