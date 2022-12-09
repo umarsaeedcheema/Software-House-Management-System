@@ -63,3 +63,8 @@ app.use("/deleteEmployee", deleteEmployee);
 const updatePassword = require("./routes/updatePassword");
 app.use("/updatepassword", updatePassword);
 
+const createProject = require("./routes/createProject");
+app.use('/createproject' , createProject)
+
+const viewProject = require("./routes/viewProject");
+app.use('/viewProject', viewProject)
