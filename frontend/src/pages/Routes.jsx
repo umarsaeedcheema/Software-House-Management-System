@@ -13,6 +13,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
 
 import UpdatePassword from "../components/UpdatePassword";
+import DeletePopUp from "../components/DeletePopUp";
 
 const routes = [
   {
@@ -76,6 +77,11 @@ const routes = [
         errorElement: <ErrorPage />,
       },
     ],
+  },
+  {
+    path: "/deletepopup",
+    element: <DeletePopUp />,
+    errorElement: <ErrorPage />,
   },
 ];
 const router = createBrowserRouter(routes);
