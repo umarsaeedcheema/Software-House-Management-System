@@ -11,18 +11,10 @@ import AddEmployee from "./AddEmployee";
 import ViewEmployee from "./ViewEmployee";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
-import UpdatePassword from '../components/UpdatePassword';
-import CreateProject from './createProject';
-import CreateClientReview from './createClientReview';
-import CreateClientProfile from './createClientProfile'; 
-import ViewProject from './ViewProject';
-import ViewClientProfile from './ViewClientProfile';
-import PMHomepage  from "./PMHomePage";
-import SEHomePage from "./SEHomePage"; 
-import ViewProjectSE from "./viewProject_SE"
-import CreateProject from "./createProject";
-import ViewProject from "./viewProject";
+import UpdatePassword from "../components/UpdatePassword";
 import DeletePopUp from "../components/DeletePopUp";
+import SEHomePage from "./HomePages/SEHomePage";
+import PMHomePage from "./HomePages/PMHomePage";
 
 const routes = [
   {
@@ -54,17 +46,6 @@ const routes = [
     element: <UpdatePassword />,
 
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/createProject",
-    element : <CreateProject/>,
-    errorElement : <ErrorPage/>
-  },
-  {
-    path : "/viewProject",
-    element: <ViewProject/>,
-    errorElement : <ErrorPage/>
-
   },
   {
     path: "hrHome",
@@ -99,68 +80,23 @@ const routes = [
     ],
   },
   {
-    path: "pmHome",
-    element: <PMHomepage />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "createProject",
-        element: <CreateProject />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "createClientProfile",
-        element: <CreateClientProfile />,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "viewProject",
-        element: <ViewProject/>,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "view-client-profile",
-        element: <ViewClientProfile/>,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "create-client-review",
-        element: <CreateClientReview/>,
-        errorElement: <ErrorPage />,
-      },
-      {
-        path: "updatepassword",
-        element: <UpdatePassword />,
-        errorElement: <ErrorPage />
-      },
-    ],
-  },
-  {
-    path: "seHome",
-    element: <SEHomePage />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "viewproject-se",
-        element: <ViewProjectSE />,
-        errorElement: <ErrorPage />,
-      },
-      
-      {
-        path: "updatepassword",
-        element: <UpdatePassword />,
-        errorElement: <ErrorPage />
-      },
-    ],
-  },
-
-   { path: "/deletepopup",
+    path: "/deletepopup",
     element: <DeletePopUp />,
     errorElement: <ErrorPage />,
   },
   {
     path: "/updatePassword",
     element: <UpdatePassword />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/swe",
+    element: <SEHomePage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/pm",
+    element: <PMHomePage />,
     errorElement: <ErrorPage />,
   },
 ];
