@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+body {
+  font-family: Montserrat;
+}
+
+h1 {
+  font-size: 30px;
+  /*width: 50px;*/
+  /*text-align: center;*/
+  font-style: bold;
+}

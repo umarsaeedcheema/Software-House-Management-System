@@ -6,6 +6,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
+  const user = {
+    id: "",
+    name: "",
+    email: ""
+  }
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
