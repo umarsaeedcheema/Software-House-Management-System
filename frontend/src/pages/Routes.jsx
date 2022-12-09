@@ -14,7 +14,6 @@ import CreateEmployeeReview from "./CreateEmployeeReview";
 import UpdatePassword from '../components/UpdatePassword';
 import CreateProject from "./createProject";
 import ViewProject from "./viewProject";
-import UpdatePassword from "../components/UpdatePassword";
 import DeletePopUp from "../components/DeletePopUp";
 
 const routes = [
