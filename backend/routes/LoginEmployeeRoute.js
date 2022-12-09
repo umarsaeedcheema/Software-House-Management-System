@@ -24,55 +24,23 @@ router.use(express.json());
 
 router.post("/", (req, res) => {
   console.log(req.body);
-  res.json(req.body);
-  const name = req.body.name;
+  // res.json(req.body);
+
   const email = req.body.email;
-  const password = req.body.password;
   connection.query(
-    {
-      sql: `SELECT * FROM users WHERE users.name='${name}' AND users.email='${email}' AND users.password='${password}'`,
-      //       values: [name, email, password],
-      timeout: 40000, //40s
-    },
+    "SELECT designation from employees WHERE email = ?",
+    [email],
     (err, result) => {
-      if (err) {
-        console.log(err);
+      if (result.length > 0) {
+        console.log("result", result);
+        console.log(result[0].designation);
+        res.send({ designation: result[0].designation });
       } else {
-        console.log("client has successsfully logged in");
+        console.log("No such user");
       }
     }
   );
 });
+
 module.exports = router;
 //
-
-//  db.query("SELECT * FROM projects;", (err, rows) => {
-//    if (rows.length == 0) {
-//      // response.errormessage += 'Project does not exist';
-//      res.send(false);
-//    } else {
-//      response.data = rows;
-//      console.log(rows);
-//      db.query(
-//        `SELECT * FROM tasks WHERE project_id=${rows[0].id}`,
-//        (err_2, rows_2) => {
-//          db.query(
-//            `SELECT * FROM assigned_swes JOIN employees ON employees.id=assigned_swes.employee_id HAVING assigned_swes.project_id=${rows[0].id};`,
-//            (err_3, rows_3) => {
-//              db.query(
-//                `SELECT * FROM employees WHERE designation='Software Engineer'`,
-//                (err_4, rows_4) => {
-//                  res.send({
-//                    project: rows,
-//                    tasks: rows_2,
-//                    assigned_swes: rows_3,
-//                    unassigned_swes: rows_4,
-//                  });
-//                }
-//              );
-//            }
-//          );
-//        }
-//      );
-//    }
-//  });

@@ -9,8 +9,8 @@ const LogIn = () => {
   const user = {
     id: "",
     name: "",
-    email: ""
-  }
+    email: "",
+  };
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -36,8 +36,15 @@ const LogIn = () => {
       //get request to check designation
 
       axios.post("http://localhost:3001/login", values).then((res) => {
-        console.log(res);
+        console.log("res", res);
         if (res.statusText === "OK") {
+          if (res.data.designation === "SWE") {
+            navigate("/swe");
+          } else if (res.data.designation === "PM") {
+            navigate("/pm");
+          } else if (res.data.designation === "HR") {
+            navigate("/hr");
+          }
           console.log("Successful login");
         } else {
           console.log("Login failed");
