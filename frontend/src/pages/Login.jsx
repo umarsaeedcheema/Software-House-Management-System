@@ -2,8 +2,8 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const user = {
@@ -17,6 +17,7 @@ const LogIn = () => {
       email: "",
       password: "",
       name: "",
+      // designation: "",
     },
     //validation
     validationSchema: Yup.object({
@@ -27,31 +28,28 @@ const LogIn = () => {
       name: Yup.string()
         .min(3, "Must be at least 3 characters")
         .required("Required"),
+      // designation: Yup.string().required("Required"),
     }),
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
+      //get request to check designation
+
       axios.post("http://localhost:3001/login", values).then((res) => {
         console.log(res);
-        if(res.statusText == "OK")
-        {
-                console.log('Successful login');
-                navigate("/hrHome");
-        }
-                
-        else
-        {
-                console.log('Login failed');
+        if (res.statusText === "OK") {
+          console.log("Successful login");
+        } else {
+          console.log("Login failed");
         }
       });
-      
     },
   });
-  console.log(formik.errors);
+  console.log(formik.values);
   return (
     <div className="flex flex-col items-center">
       <div className="mt-12 p-10 bg-sky-100 rounded-2xl">
-        <h1 className="text-3xl my-10 items-center">Client LogIn</h1>
+        <h1 className="text-3xl my-5 mx-12"> LogIn</h1>
         <form
           action=""
           className="flex flex-col "
@@ -113,12 +111,39 @@ const LogIn = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
           />
+          <p className="inline-block underline underline-offset-4 cursor-pointer text-sm font-mono ml-auto">
+            <Link to="/updatePassword">Update Password</Link>
+          </p>
+          {/* <label
+            htmlFor="designation"
+            className={`text-gray-900 block pb-2 ${
+              formik.touched.designation && formik.errors.designation
+                ? "text-red-400"
+                : ""
+            }`}
+          >
+            {formik.touched.designation && formik.errors.designation
+              ? formik.errors.designation
+              : "Designation:"}
+          </label>
+          <select
+            name="designation"
+            id="designation"
+            onChange={formik.handleChange}
+            value={formik.values.designation}
+            className="ml-2 border border-gray-400 rounded "
+          >
+            <option value="">Select an option</option>
+            <option value="SWE">Software Engineer</option>
+            <option value="PM">Project Manager</option>
+            <option value="HR">Human Resource</option>
+          </select> */}
 
           <button
             type="submit"
             className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-2/4 hover:bg-blue-800"
           >
-            Submit
+            LogIn
           </button>
         </form>
       </div>

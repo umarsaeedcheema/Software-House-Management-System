@@ -5,15 +5,17 @@ import SignUp from "./SignUp";
 import RaisePrivilege from "./RaisePrivilege";
 import LoginPopUp from "../components/LoginPopUp";
 import Login from "./Login";
-import HRHomepage from "./HRHomepage";
+import HRHomepage from "./HomePages/HRHomepage";
 import NoMatch from "./NoMatch";
 import AddEmployee from "./AddEmployee";
 import ViewEmployee from "./ViewEmployee";
-import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
 import UpdatePassword from '../components/UpdatePassword';
 import CreateProject from "./createProject";
 import ViewProject from "./viewProject";
+import UpdatePassword from "../components/UpdatePassword";
+import DeletePopUp from "../components/DeletePopUp";
 
 const routes = [
   {
@@ -43,7 +45,8 @@ const routes = [
   {
     path: "/updatepassword",
     element: <UpdatePassword />,
-    errorElement: <ErrorPage />
+
+    errorElement: <ErrorPage />,
   },
   {
     path: "/createProject",
@@ -73,20 +76,30 @@ const routes = [
       },
       {
         path: "raise-privilege",
-        element: <RaisePrivilege/>,
+        element: <RaisePrivilege />,
         errorElement: <ErrorPage />,
       },
       {
         path: "create-employee-review",
-        element: <CreateEmployeeReview/>,
+        element: <CreateEmployeeReview />,
         errorElement: <ErrorPage />,
       },
       {
         path: "view-employees-review",
-        element: <ViewEmployee/>,
+        element: <ViewEmployee />,
         errorElement: <ErrorPage />,
       },
     ],
+  },
+  {
+    path: "/deletepopup",
+    element: <DeletePopUp />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/updatePassword",
+    element: <UpdatePassword />,
+    errorElement: <ErrorPage />,
   },
 ];
 const router = createBrowserRouter(routes);
