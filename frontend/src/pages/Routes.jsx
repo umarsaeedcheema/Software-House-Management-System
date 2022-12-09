@@ -12,6 +12,13 @@ import ViewEmployee from "./ViewEmployee";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import CreateEmployeeReview from "./CreateEmployeeReview";
 import UpdatePassword from '../components/UpdatePassword';
+import CreateProject from './createProject';
+import CreateClientReview from './createClientReview';
+import CreateClientProfile from './createClientProfile'; 
+import ViewProject from './ViewProject';
+import ViewClientProfile from './ViewClientProfile';
+import PMHomepage  from "./PMHomePage";
+
 
 const routes = [
   {
@@ -75,6 +82,45 @@ const routes = [
       },
     ],
   },
+  {
+    path: "pmHome",
+    element: <PMHomepage />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "createProject",
+        element: <CreateProject />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "createClientProfile",
+        element: <CreateClientProfile />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "viewProject",
+        element: <ViewProject/>,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "view-client-profile",
+        element: <ViewClientProfile/>,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "create-client-review",
+        element: <CreateClientReview/>,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "/updatepassword",
+        element: <UpdatePassword />,
+        errorElement: <ErrorPage />
+      },
+    ],
+  },
+  
+
 ];
 const router = createBrowserRouter(routes);
 

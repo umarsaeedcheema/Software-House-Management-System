@@ -34,6 +34,12 @@ app.get("/", (req, res) => {
   res.send("hello world");
 });
 
+const createProject = require('./routes/createProject');
+const createClientReview = require('./routes/createClientReview');
+const CreateClientProfile = require('./routes/createClientProfile');
+const viewProject = require('./routes/viewProject');
+const viewClientProfile = require('./routes/viewClientProfile'); 
+
 const loginEmployeeRouter = require("./routes/LoginEmployeeRoute");
 app.use("/login", loginEmployeeRouter);
 
@@ -57,3 +63,12 @@ app.use("/viewEmployee", viewEmployee);
 //update Password
 const updatePassword = require("./routes/updatePassword");
 app.use("/updatepassword", updatePassword);
+
+
+app.use('/createproject' , createProject);
+app.use('/createclientreview', createClientReview);
+app.use('/viewProject', viewProject);
+app.use('/createclientprofile', CreateClientProfile);
+app.use('/viewclientprofile', viewClientProfile);
+
+module.exports = app;
