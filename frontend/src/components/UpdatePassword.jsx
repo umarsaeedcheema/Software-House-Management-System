@@ -37,9 +37,9 @@ class UpdatePassword extends React.Component {
     event.preventDefault();
 
     if (
-      this.state.oldpassword == "" ||
-      this.state.newpassword == "" ||
-      this.state.newpasswordconfirmation == ""
+      this.state.oldpassword === "" ||
+      this.state.newpassword === "" ||
+      this.state.newpasswordconfirmation === ""
     ) {
       console.log("error");
     } else {

@@ -11,6 +11,7 @@ const AddEmployee = () => {
       designation: "",
       salary: 0,
       hired_date: "",
+      email: "",
     },
     //validation
     validationSchema: Yup.object({
@@ -23,6 +24,7 @@ const AddEmployee = () => {
       designation: Yup.string().required("Required"),
       salary: Yup.number().required("Required"),
       hired_date: Yup.date().required("Required"),
+      email: Yup.string().email("Invalid email address").required("Required"),
     }),
 
     onSubmit: (values) => {
@@ -83,6 +85,24 @@ const AddEmployee = () => {
             value={formik.values.last_name}
           />
           <label
+            htmlFor="email"
+            className={`text-gray-900 block pb-2 ${
+              formik.touched.email && formik.errors.email ? "text-red-400" : ""
+            }`}
+          >
+            {formik.touched.email && formik.errors.email
+              ? formik.errors.email
+              : "Email:"}
+          </label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            className="ml-2 border border-gray-400 rounded "
+            onChange={formik.handleChange}
+            value={formik.values.email}
+          />
+          <label
             htmlFor="designation"
             className={`text-gray-900 block pb-2 ${
               formik.touched.designation && formik.errors.designation
@@ -102,17 +122,11 @@ const AddEmployee = () => {
             className="ml-2 border border-gray-400 rounded"
           >
             <option value="">Select an option</option>
-            <option value="SE-1">SE-1</option>
-            <option value="Senior SE">Senior SE</option>
+            <option value="SWE">Software Engineer</option>
+            <option value="PM">Project Manager</option>
+            <option value="HR">Human Resource</option>
           </select>
-          {/* <input
-            type="radio"
-            name="designation"
-            id="designation"
-            className="ml-2 border border-gray-400 rounded "
-            onChange={formik.handleChange}
-            value={formik.values.designation}
-          /> */}
+
           <label
             htmlFor="salary"
             className={`text-gray-900 block pb-2 ${

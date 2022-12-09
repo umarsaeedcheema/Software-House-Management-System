@@ -5,7 +5,7 @@ import SignUp from "./SignUp";
 import RaisePrivilege from "./RaisePrivilege";
 import LoginPopUp from "../components/LoginPopUp";
 import Login from "./Login";
-import HRHomepage from "./HRHomepage";
+import HRHomepage from "./HomePages/HRHomepage";
 import NoMatch from "./NoMatch";
 import AddEmployee from "./AddEmployee";
 import ViewEmployee from "./ViewEmployee";
@@ -81,6 +81,11 @@ const routes = [
   {
     path: "/deletepopup",
     element: <DeletePopUp />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/updatePassword",
+    element: <UpdatePassword />,
     errorElement: <ErrorPage />,
   },
 ];
