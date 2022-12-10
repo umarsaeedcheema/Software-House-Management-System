@@ -23,16 +23,27 @@ connection.connect((err) => {
 router.use(express.json());
 
 router.post("/", (req, res) => {
-  connection.query(`SELECT * FROM projects WHERE assigned_to_pm=${req.body.id}`, (err, result) => {
-    if (err) {
-        // console.log("line 28")
-      console.log(err);
-    } else {
-      console.log("Success");
-      console.log(result);
-      res.send(result);
-    }
+  connection.query(`SELECT * FROM projects WHERE assigned_to_pm=${req.body.id}`, (err, projects) => {
+    connection.query(`SELECT task, due_date, assigned_to, tasks.status, project_id FROM tasks JOIN projects ON projects.id=tasks.project_id WHERE assigned_to=${req.body.id};`, (err_2, tasks) => {
+      if (err) {
+          // console.log("line 28")
+        console.log(err);
+      } else {
+        console.log("Success");
+        // console.log("tasks", tasks);
+        res.send({
+          projects: projects,
+          tasks: tasks
+        });
+      }
+    })
   });
+});
+
+router.post('/markprojectcomplete', function(req, res) {
+  const project_id = req.body.project_id
+  connection.query(`UPDATE projects SET status='Completed' WHERE id=${project_id};`)
+  res.json("Success");
 });
 
 module.exports = router;

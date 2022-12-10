@@ -33,7 +33,10 @@ const PMHomepage = () => {
             <Link to={`createProject`}>Create Project</Link>
           </button>
           <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
-            <Link to={{pathname: `viewProject`, state: state}}>View all Project</Link>
+            <Link to={{pathname: `viewProject`, state: state}}>View All Projects</Link>
+          </button>
+          <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
+            <Link to={`createTask`}>Create Task</Link>
           </button>
           <button className="bg-blue-500 text-white rounded mt-4 mx-auto p-2 sm:w-1/4 ml-1 hover:bg-blue-800">
             <Link to={`createClientProfile`}>Create Client Profile</Link>

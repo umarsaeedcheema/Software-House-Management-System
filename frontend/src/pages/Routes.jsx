@@ -17,6 +17,10 @@ import SEHomePage from "./HomePages/SEHomePage";
 import PMHomePage from "./HomePages/PMHomePage";
 import ViewProject from "./viewProject";
 import CreateProject from "./createProject";
+import CreateTask from "./createTask";
+import CreateClientProfile from "./createClientProfile";
+import CreateClientReview from "./createClientReview";
+import ViewClientProfile from "./ViewClientProfile"
 
 const routes = [
   {
@@ -107,6 +111,11 @@ const routes = [
         errorElement: <ErrorPage />,
       },
       {
+        path: "createtask",
+        element: <CreateTask />,
+        errorElement: <ErrorPage />,
+      },
+      {
         path: "viewproject",
         element: <ViewProject />,
         errorElement: <ErrorPage />,
@@ -114,6 +123,21 @@ const routes = [
       {
         path: "updatepassword",
         element: <UpdatePassword />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "createClientProfile",
+        element: <CreateClientProfile />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "view-client-profile",
+        element: <ViewClientProfile />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: "create-client-review",
+        element: <CreateClientReview />,
         errorElement: <ErrorPage />,
       },
     ],
