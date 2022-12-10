@@ -16,6 +16,7 @@ import DeletePopUp from "../components/DeletePopUp";
 import SEHomePage from "./HomePages/SEHomePage";
 import PMHomePage from "./HomePages/PMHomePage";
 import ViewProject from "./viewProject";
+import ViewProjectSE from "./viewProject_SE";
 import CreateProject from "./createProject";
 import CreateTask from "./createTask";
 import CreateClientProfile from "./createClientProfile";
@@ -99,6 +100,13 @@ const routes = [
     path: "/swe",
     element: <SEHomePage />,
     errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "viewproject-se",
+        element: <ViewProjectSE />,
+        errorElement: <ErrorPage />,
+      },
+    ]
   },
   {
     path: "/pm",
