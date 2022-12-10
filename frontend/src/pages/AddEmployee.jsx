@@ -31,7 +31,7 @@ const AddEmployee = () => {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       axios.post(BACKEND_LINK + "/addEmployee", values).then((res) => {
-        console.log(res);
+        // console.log(res);
         window.location.reload();
       });
     },

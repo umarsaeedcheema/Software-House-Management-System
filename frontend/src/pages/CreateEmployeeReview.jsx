@@ -23,7 +23,7 @@ const CreateEmployeeReview = () => {
       axios
         .post(BACKEND_LINK + "/create-employee-review", values)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
         });
     },
   });
