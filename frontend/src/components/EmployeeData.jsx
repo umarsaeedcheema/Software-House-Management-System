@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import BACKEND_LINK from "./env.js";
 
 const EmployeeData = () => {
   const navigate = useNavigate();
@@ -11,7 +12,7 @@ const EmployeeData = () => {
   const deleteEmployee = (id) => {
     axios
       .delete(
-        `http://localhost:3001/deleteEmployee/`,
+        BACKEND_LINK + "/deleteEmployee/",
         {
           data: {
             id: id,

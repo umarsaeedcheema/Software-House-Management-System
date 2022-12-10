@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Dropdown } from 'bootstrap';
+import BACKEND_LINK from "./env.js";
 
 class CreateClientProfile extends React.Component {
     constructor(props) {
@@ -46,7 +47,7 @@ class CreateClientProfile extends React.Component {
             client_name : document.getElementById('client_name').value,  
         }
         // console.log(request)
-        axios.post('http://localhost:3001/createclientprofile', request)
+        axios.post(BACKEND_LINK + "/createclientprofile", request)
         .then(resp => {
             alert(JSON.stringify(resp.data, null,2));
         })

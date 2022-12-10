@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import BACKEND_LINK from "./env.js";
 
 const RaisePrivilege = () => {
   const formik = useFormik({
@@ -15,7 +16,7 @@ const RaisePrivilege = () => {
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      axios.post("http://localhost:3001/raise-privilege", values).then((res) => {
+      axios.post(BACKEND_LINK + "/raise-privilege", values).then((res) => {
         console.log(res);
       });
     },

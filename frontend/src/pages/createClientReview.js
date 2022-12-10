@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Dropdown } from 'bootstrap';
+import BACKEND_LINK from "./env.js";
 
 class CreateClientReview extends React.Component {
     constructor(props) {
@@ -69,7 +70,7 @@ class CreateClientReview extends React.Component {
             // created_at : this.getTimestamp()
         }
         // console.log(request)
-        axios.post('http://localhost:3001/createClientReview', request)
+        axios.post(BACKEND_LINK + "/createClientReview", request)
         .then(resp => {
             alert(JSON.stringify(resp.data, null,2));
         })

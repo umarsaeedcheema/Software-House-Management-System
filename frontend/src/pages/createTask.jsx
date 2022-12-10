@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Dropdown } from 'bootstrap';
-import BACKEND_LINK from "../env.js";
+import BACKEND_LINK from "./env.js";
 
 class CreateTask extends React.Component {
     constructor(props) {

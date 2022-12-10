@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { Link, Routes, Route, useNavigate } from "react-router-dom";
+import BACKEND_LINK from "./env.js";
 
 const CreateEmployeeReview = () => {
   const formik = useFormik({
@@ -20,7 +21,7 @@ const CreateEmployeeReview = () => {
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
       axios
-        .post("http://localhost:3001/create-employee-review", values)
+        .post(BACKEND_LINK + "/create-employee-review", values)
         .then((res) => {
           console.log(res);
         });

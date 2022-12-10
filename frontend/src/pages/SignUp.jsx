@@ -3,6 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import BACKEND_LINK from "./env.js";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -25,7 +26,7 @@ const SignUp = () => {
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      axios.post("http://localhost:3001/signup", values).then((res) => {
+      axios.post(BACKEND_LINK + "http://localhost:3001/signup", values).then((res) => {
         console.log(res);
       });
       navigate("/loginpopup", {
