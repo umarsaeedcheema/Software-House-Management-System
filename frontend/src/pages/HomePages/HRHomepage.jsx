@@ -1,28 +1,36 @@
 import React from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const HRHomepage = () => {
+  const navigate = useNavigate();
   const { state } = useLocation();
   const windowState = JSON.parse(window.localStorage.getItem("state"));
-  
+
   if (state) {
-    if ( windowState === null || state.id != windowState.id) {
-      const windowState = window.localStorage.setItem("state", JSON.stringify(state));
+    if (windowState === null || state.id != windowState.id) {
+      const windowState = window.localStorage.setItem(
+        "state",
+        JSON.stringify(state)
+      );
     }
   }
-  
+
   console.log("state", state);
   console.log("windowState", windowState);
 
   return (
     <div>
-      <h1 className="flex justify-center">
-        Human Resources Home Page
-      </h1>
+      <h1 className="flex justify-center">Human Resources Home Page</h1>
       <nav>
         <div className="flex justify-center gap-4 mt-5 ">
-          <button className="bg-blue-200 hover:bg-blue-400 p-4 rounded-2xl">
-            <Link to={{pathname: `updatepassword`, state: state}}>Update Password</Link>
+          <button
+            className="bg-blue-200 hover:bg-blue-400 p-4 rounded-2xl"
+            onClick={() => {
+              navigate(`/updatepassword`, { state: state });
+            }}
+          >
+            Update Password
           </button>
           <button className="bg-blue-200 hover:bg-blue-400 p-4 rounded-2xl">
             <Link to={`/login`}>Log out</Link>
