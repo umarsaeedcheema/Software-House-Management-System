@@ -80,4 +80,7 @@ app.use("/createproject", createProject);
 
 const viewProject = require("./routes/viewProject");
 app.use("/viewProject", viewProject);
+
+const createTask = require("./routes/createTask");
+app.use("/createTask", createTask);
 module.exports = app;

@@ -75,3 +75,7 @@ h1 {
 .form-myflex-container > input {
   margin: -20px;
 }
+
+h2 {
+  font-size: 30px;
+}
