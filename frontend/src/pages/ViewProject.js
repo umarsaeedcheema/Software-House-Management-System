@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BACKEND_LINK from "./env.js";
 
 // import ProjectData from "../components/ProjectsData";
 
@@ -14,7 +15,7 @@ const ProjectData = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3001/viewProject")
+      .get(BACKEND_LINK + "/viewProject")
       .then((response) => {
         console.log(response.data);
         setprojects(response.data);

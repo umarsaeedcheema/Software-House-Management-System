@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import BACKEND_LINK from "./env.js";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -37,7 +38,7 @@ const LogIn = () => {
       // alert(JSON.stringify(values, null, 2));
       //get request to check designation
 
-      axios.post("http://localhost:3001/login", values).then((res) => {
+      axios.post(BACKEND_LINK + "/login", values).then((res) => {
         console.log("res", res);
         if (res.data.statusText === "OK") {
           if (res.data.designation === "SWE" || res.data.designation === "Software Engineer") {

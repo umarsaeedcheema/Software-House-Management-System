@@ -2,6 +2,7 @@ import React from "react";
 import { useFormik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
+import BACKEND_LINK from "./env.js";
 
 const AddEmployee = () => {
   const formik = useFormik({
@@ -29,7 +30,7 @@ const AddEmployee = () => {
 
     onSubmit: (values) => {
       alert(JSON.stringify(values, null, 2));
-      axios.post("http://localhost:3001/addEmployee", values).then((res) => {
+      axios.post(BACKEND_LINK + "/addEmployee", values).then((res) => {
         console.log(res);
         window.location.reload();
       });

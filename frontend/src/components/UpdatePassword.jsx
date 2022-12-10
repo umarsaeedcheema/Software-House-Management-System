@@ -1,6 +1,6 @@
 import React from "react";
 import "./UpdatePassword.css";
-import BACKEND_LINK from "../env.js";
+import BACKEND_LINK from "./env.js";
 
 class UpdatePassword extends React.Component {
   constructor(props) {

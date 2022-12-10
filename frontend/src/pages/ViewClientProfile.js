@@ -2,13 +2,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import BACKEND_LINK from "./env.js";
 
 // import ProjectData from "../components/ProjectsData";
 
 const ClientData = () => {
   const [clients, setclients] = useState([]);
   useEffect(() => {
-    axios.get("http://localhost:3001/viewClientProfile").then((response) => {
+    axios.get(BACKEND_LINK + "/viewClientProfile").then((response) => {
         console.log(response.data)
       setclients(response.data);
     }).catch((err) => {console.log(err)});

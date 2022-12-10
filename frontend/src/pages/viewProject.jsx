@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import BACKEND_LINK from "../env.js";
+import BACKEND_LINK from "./env.js";
 import "./viewProject.css";
 
 // import ProjectData from "../components/ProjectsData";
