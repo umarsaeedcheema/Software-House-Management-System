@@ -88,6 +88,7 @@ const queries = [
 "CREATE TABLE IF NOT EXISTS soft_management.assigned_swes (project_id int, employee_id int, FOREIGN KEY (project_id) REFERENCES projects(id), FOREIGN KEY (employee_id) REFERENCES employees(id))",
 "CREATE TABLE IF NOT EXISTS soft_management.client_reviews (client_id int, project_id int, content varchar(250), submitted_by int, PRIMARY KEY(client_id, project_id, submitted_by))",
 "CREATE TABLE IF NOT EXISTS soft_management.clients (client_id int NOT NULL AUTO_INCREMENT, name varchar(250), PRIMARY KEY (client_id))",
+"CREATE TABLE IF NOT EXISTS soft_management.attendance (employee_id int, date timestamp DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (employee_id) REFERENCES employees(id))"
 ];
 
 connectionString.connect((error) => {
