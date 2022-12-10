@@ -18,6 +18,7 @@ const onButtonClick = (event) => {
     .then(response => {
       if (response) {
         alert("Project marked as complete.");
+        window.location.reload(false);
         // setprojects(response.projects);
       }
     })

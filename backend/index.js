@@ -78,6 +78,9 @@ app.use("/updateProject", updateProject);
 const createProject = require("./routes/createProject");
 app.use("/createproject", createProject);
 
+const viewProjectSE = require("./routes/viewProjectSE");
+app.use("/viewProjectSE", viewProjectSE);
+
 const viewProject = require("./routes/viewProject");
 app.use("/viewProject", viewProject);
 
