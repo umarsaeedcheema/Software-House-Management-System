@@ -25,7 +25,7 @@ const SEHomePage = () => {
             <Link to={`updatepassword`}>Update Password</Link>
           </button>
           <button className="bg-blue-200 hover:bg-blue-400 p-4 rounded-2xl">
-            Log out
+            <Link to={`/login`}>Log out</Link>
           </button>
         </div>
         <div className="flex justify-center  ">
