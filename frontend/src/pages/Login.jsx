@@ -39,7 +39,7 @@ const LogIn = () => {
       //get request to check designation
 
       axios.post(BACKEND_LINK + "/login", values).then((res) => {
-        console.log("res", res);
+        // console.log("res", res);
         if (res.data.statusText === "OK") {
           if (res.data.designation === "SWE" || res.data.designation === "Software Engineer") {
             navigate("/swe", {"state": {"name": res.data.name, "id": res.data.id}});
@@ -56,7 +56,7 @@ const LogIn = () => {
       });
     },
   });
-  console.log(formik.values);
+  // console.log(formik.values);
   return (
     <div className="flex flex-col items-center">
       <div className="mt-12 p-10 bg-sky-100 rounded-2xl">

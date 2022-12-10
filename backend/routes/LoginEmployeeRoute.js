@@ -9,14 +9,14 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 // //create connection
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: process.env.host,
   user: process.env.user,
   password: process.env.password,
   database: process.env.database,
 });
 // //connecting to db
-connection.connect((err) => {
+connection.getConnection((err) => {
   if (err) console.log("Error connecting to Db");
   console.log("Connection established");
 });
@@ -24,7 +24,7 @@ connection.connect((err) => {
 router.use(express.json());
 
 router.post("/", (req, res) => {
-  // console.log(req.body);
+  console.log(req.body);
   // res.json(req.body);
 
   const email = req.body.email;
@@ -33,7 +33,7 @@ router.post("/", (req, res) => {
     if (err_1 || rows.length === 0) {
       res.send({ statusText: "Wrong password"});
     }
-
+    console.log(rows);
     const isValid = bcrypt.compareSync(password, rows[0].password);
 
     if (!isValid) {

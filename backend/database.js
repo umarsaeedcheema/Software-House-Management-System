@@ -1,5 +1,8 @@
 const mysql = require('mysql');
-module.exports = mysql.createConnection(
+const dotenv = require("dotenv");
+dotenv.config({ path: ".env" });
+
+const connection = mysql.createPool(
     {
         host:process.env.host,
         user: process.env.user,
@@ -7,3 +10,10 @@ module.exports = mysql.createConnection(
         database:process.env.database
     }
 );
+
+connection.getConnection((err) => {
+  if (err) console.log("Error connecting to Db");
+  console.log("Connection established");
+});
+
+module.exports = connection;

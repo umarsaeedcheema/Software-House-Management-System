@@ -1,19 +1,42 @@
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
-const PORT = 3001;
+const PORT = process.env.PORT;
 const cors = require("cors");
 const bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 //use .env file
 require("dotenv").config();
-app.use(cors());
+
 //parsing data
 app.use(express.json());
 
+//Cors Configuration - Start
+// app.use((req, res, next) => {
+//   res.header("Access-Control-Allow-Origin", "*")
+//   res.header(
+//     "Access-Control-Allow-Headers",
+//     "Origin, X-Requested, Content-Type, Accept Authorization"
+//   )
+//   if (req.method === "OPTIONS") {
+//     res.header(
+//       "Access-Control-Allow-Methods",
+//       "POST, PUT, PATCH, GET, DELETE"
+//     )
+//     return res.status(200).json({})
+//   }
+//   next()
+// })
+//Cors Configuration - End
+app.use(
+    cors({
+        origin: "https://softwarehousemanagement.herokuapp.com", 
+        credentials: true,
+    })
+);
 //create connection
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: process.env.host,
   user: process.env.user,
   password: process.env.password,
@@ -21,7 +44,7 @@ const connection = mysql.createConnection({
 });
 
 //connecting to db
-connection.connect((err) => {
+connection.getConnection((err) => {
   if (err) console.log("Error connecting to Db");
   console.log("Connection established");
 });
@@ -86,4 +109,6 @@ app.use("/viewProject", viewProject);
 
 const createTask = require("./routes/createTask");
 app.use("/createTask", createTask);
+
+// app.use(cors());
 module.exports = app;

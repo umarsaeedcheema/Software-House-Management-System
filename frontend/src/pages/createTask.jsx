@@ -41,7 +41,7 @@ class CreateTask extends React.Component {
       })
         .then((response) => response.json())
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           if (response.success) {
             this.setState({ message: "Success!" });
             alert("Task created successfully.")

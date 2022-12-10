@@ -21,22 +21,22 @@ class UpdatePassword extends React.Component {
 
   onIDChange = (event) => {
     this.setState({ employee_id: event.target.value });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   onOldPasswordChange = (event) => {
     this.setState({ oldpassword: event.target.value });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   onNewPasswordChange = (event) => {
     this.setState({ newpassword: event.target.value });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   onNewPasswordConfirmationChange = (event) => {
     this.setState({ newpasswordconfirmation: event.target.value });
-    console.log(this.state);
+    // console.log(this.state);
   };
 
   onUpdatePassword = (event) => {

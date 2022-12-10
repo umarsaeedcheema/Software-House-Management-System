@@ -9,14 +9,14 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 // //create connection
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
   host: process.env.host,
   user: process.env.user,
   password: process.env.password,
   database: process.env.database,
 });
 // //connecting to db
-connection.connect((err) => {
+connection.getConnection((err) => {
   if (err) console.log("Error connecting to Db");
   console.log("Connection established");
 });
