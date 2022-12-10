@@ -15,13 +15,13 @@ import UpdatePassword from "../components/UpdatePassword";
 import DeletePopUp from "../components/DeletePopUp";
 import SEHomePage from "./HomePages/SEHomePage";
 import PMHomePage from "./HomePages/PMHomePage";
-import ViewProject from "./viewProject";
+import ViewProject from "./ViewProject";
 import ViewProjectSE from "./viewProject_SE";
 import CreateProject from "./createProject";
 import CreateTask from "./createTask";
 import CreateClientProfile from "./createClientProfile";
 import CreateClientReview from "./createClientReview";
-import ViewClientProfile from "./ViewClientProfile"
+import ViewClientProfile from "./ViewClientProfile";
 
 const routes = [
   {
@@ -106,7 +106,7 @@ const routes = [
         element: <ViewProjectSE />,
         errorElement: <ErrorPage />,
       },
-    ]
+    ],
   },
   {
     path: "/pm",
