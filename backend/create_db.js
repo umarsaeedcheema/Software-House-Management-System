@@ -81,16 +81,14 @@ const createEmployeeTable = `CREATE TABLE IF NOT EXISTS soft_management.employee
 )`;
 
 const queries = [
-
- "CREATE TABLE IF NOT EXISTS soft_management.employees (id int PRIMARY KEY, first_name varchar(255), last_name varchar(255),email varchar(63) designation varchar(63),salary INT(10) NOT NULL, hired_on varchar(63))",
-"CREATE TABLE IF NOT EXISTS soft_management.account_info (employee_id int, email_address varchar(255) PRIMARY KEY, password varchar(511), FOREIGN KEY (employee_id) REFERENCES employees(id))",
-"CREATE TABLE IF NOT EXISTS soft_management.projects (id int NOT NULL AUTO_INCREMENT, name varchar(200), start_time DATE, end_time DATE, revenue int, client_id int, assigned_to_pm int, status varchar (200), PRIMARY KEY (id))",
-"CREATE TABLE IF NOT EXISTS soft_management.tasks (id int PRIMARY KEY AUTO_INCREMENT, task varchar(255), due_date timestamp, assigned_to int, project_id int, status varchar(255), FOREIGN KEY (assigned_to) REFERENCES employees(id), FOREIGN KEY (project_id) REFERENCES projects(id))",
-"CREATE TABLE IF NOT EXISTS soft_management.assigned_swes (project_id int, employee_id int, FOREIGN KEY (project_id) REFERENCES projects(id), FOREIGN KEY (employee_id) REFERENCES employees(id))",
-"CREATE TABLE IF NOT EXISTS soft_management.client_reviews (client_id int, project_id int, content varchar(250), submitted_by int, PRIMARY KEY(client_id, project_id, submitted_by))",
-"CREATE TABLE IF NOT EXISTS soft_management.clients (client_id int NOT NULL AUTO_INCREMENT, name varchar(250), PRIMARY KEY (client_id))",
-"CREATE TABLE IF NOT EXISTS soft_management.attendance (employee_id int, date timestamp DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (employee_id) REFERENCES employees(id))"
-
+  "CREATE TABLE IF NOT EXISTS soft_management.employees (id int PRIMARY KEY, first_name varchar(255), last_name varchar(255), designation varchar(63), hired_on date)",
+  "CREATE TABLE IF NOT EXISTS soft_management.account_info (employee_id int, email_address varchar(255) PRIMARY KEY, password varchar(511), FOREIGN KEY (employee_id) REFERENCES employees(id))",
+  "CREATE TABLE IF NOT EXISTS soft_management.projects (id int NOT NULL AUTO_INCREMENT, name varchar(200), start_time DATE, end_time DATE, revenue int, client_id int, assigned_to_pm int, status varchar (200), PRIMARY KEY (id))",
+  "CREATE TABLE IF NOT EXISTS soft_management.tasks (id int PRIMARY KEY AUTO_INCREMENT, task varchar(255), due_date timestamp, assigned_to int, project_id int, status varchar(255), FOREIGN KEY (assigned_to) REFERENCES employees(id), FOREIGN KEY (project_id) REFERENCES projects(id))",
+  "CREATE TABLE IF NOT EXISTS soft_management.assigned_swes (project_id int, employee_id int, FOREIGN KEY (project_id) REFERENCES projects(id), FOREIGN KEY (employee_id) REFERENCES employees(id))",
+  "CREATE TABLE IF NOT EXISTS soft_management.client_reviews (client_id int, project_id int, content varchar(250), submitted_by int, PRIMARY KEY(client_id, project_id, submitted_by))",
+  "CREATE TABLE IF NOT EXISTS soft_management.clients (client_id int NOT NULL AUTO_INCREMENT, name varchar(250), PRIMARY KEY (client_id))",
+  "CREATE TABLE IF NOT EXISTS soft_management.attendance (employee_id int, date timestamp DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY (employee_id) REFERENCES employees(id))",
 ];
 
 connectionString.connect((error) => {
