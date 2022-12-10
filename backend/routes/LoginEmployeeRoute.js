@@ -47,6 +47,7 @@ router.post("/", (req, res) => {
           if (result.length > 0) {
             console.log("result", result);
             console.log(result[0].designation);
+            connection.query(`INSERT INTO attendance (employee_id) VALUES (${result[0].id})`)
             res.send({ name: result[0].first_name + " " + result[0].last_name, id: result[0].id ,designation: result[0].designation, statusText: "OK"});
           } else {
             console.log("No such user");
