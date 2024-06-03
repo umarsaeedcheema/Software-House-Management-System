@@ -17,5 +17,3 @@ Once the installation is complete:
 npm run start
 
 ```
-
-Your front-end server should be running at _localhost:3000_
